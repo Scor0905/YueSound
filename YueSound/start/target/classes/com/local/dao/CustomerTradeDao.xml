@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.local.dao.CustomerTradeDao">
+    <sql id="allColumn">
+    id,                                               cCode,                                            cName,                                            iCreatorType,
+    cCreatorName,                                     orgId,                                            iShopID,                                          cErpCode,
+    isEnabled,                                        iDeleted,                                         iOrder,                                           parent_id,
+    level,                                            path,                                             sort_num,                                         isEnd,
+    stopstatus,                                       stop_time,                                        pubts,                                            tenant_id,
+    create_time,                                      create_date,                                      modify_time,                                      modify_date,
+    creator,                                          modifier,                                         creatorId,                                        modifierId,
+    cName2,                                           cName3,                                           cName4,                                           cName5,
+    cName6,                                           ytenant_id
+</sql>
+
+    <sql id="allColumnAlias">
+    id as id,                                         cCode as cCode,                                   cName as cName,                                   iCreatorType as iCreatorType,
+    cCreatorName as cCreatorName,                     orgId as orgId,                                   iShopID as iShopId,                               cErpCode as cErpCode,
+    isEnabled as isEnabled,                           iDeleted as iDeleted,                             iOrder as iOrder,                                 parent_id as parentId,
+    level as level,                                   path as path,                                     sort_num as sortNum,                              isEnd as iSend,
+    stopstatus as stopStatus,                         stop_time as stopTime,                            pubts as pubts,                                   tenant_id as tenantId,
+    create_time as createTime,                        create_date as createDate,                        modify_time as modifyTime,                        modify_date as modifyDate,
+    creator as creator,                               modifier as modifier,                             creatorId as creatorId,                           modifierId as modifierId,
+    cName2 as cName2,                                 cName3 as cName3,                                 cName4 as cName4,                                 cName5 as cName5,
+    cName6 as cName6,                                 ytenant_id as yTenantId
+</sql>
+
+    <sql id="allColumnValue">
+    #{id,jdbcType=BIGINT},                  #{cCode,jdbcType=VARCHAR},              #{cName,jdbcType=VARCHAR},              #{iCreatorType,jdbcType=INTEGER},
+    #{cCreatorName,jdbcType=VARCHAR},       #{orgId,jdbcType=VARCHAR},              #{iShopId,jdbcType=BIGINT},             #{cErpCode,jdbcType=VARCHAR},
+    #{isEnabled,jdbcType=INTEGER},          #{iDeleted,jdbcType=INTEGER},           #{iOrder,jdbcType=INTEGER},             #{parentId,jdbcType=BIGINT},
+    #{level,jdbcType=INTEGER},              #{path,jdbcType=VARCHAR},               #{sortNum,jdbcType=INTEGER},            #{iSend,jdbcType=INTEGER},
+    #{stopStatus,jdbcType=INTEGER},         #{stopTime,jdbcType=DATE},              #{pubts,jdbcType=DATE},                 #{tenantId,jdbcType=BIGINT},
+    #{createTime,jdbcType=DATE},            #{createDate,jdbcType=DATE},            #{modifyTime,jdbcType=DATE},            #{modifyDate,jdbcType=DATE},
+    #{creator,jdbcType=VARCHAR},            #{modifier,jdbcType=VARCHAR},           #{creatorId,jdbcType=BIGINT},           #{modifierId,jdbcType=BIGINT},
+    #{cName2,jdbcType=VARCHAR},             #{cName3,jdbcType=VARCHAR},             #{cName4,jdbcType=VARCHAR},             #{cName5,jdbcType=VARCHAR},
+    #{cName6,jdbcType=VARCHAR},             #{yTenantId,jdbcType=VARCHAR}
+</sql>
+
+    <sql id="allColumnSet">
+        <if test="id != null">
+            id=#{id,jdbcType=BIGINT},
+        </if>
+        <if test="cCode != null and cCode != ''">
+            cCode=#{cCode,jdbcType=VARCHAR},
+        </if>
+        <if test="cName != null and cName != ''">
+            cName=#{cName,jdbcType=VARCHAR},
+        </if>
+        <if test="iCreatorType != null">
+            iCreatorType=#{iCreatorType,jdbcType=INTEGER},
+        </if>
+        <if test="cCreatorName != null and cCreatorName != ''">
+            cCreatorName=#{cCreatorName,jdbcType=VARCHAR},
+        </if>
+        <if test="orgId != null and orgId != ''">
+            orgId=#{orgId,jdbcType=VARCHAR},
+        </if>
+        <if test="iShopId != null">
+            iShopID=#{iShopId,jdbcType=BIGINT},
+        </if>
+        <if test="cErpCode != null and cErpCode != ''">
+            cErpCode=#{cErpCode,jdbcType=VARCHAR},
+        </if>
+        <if test="isEnabled != null">
+            isEnabled=#{isEnabled,jdbcType=INTEGER},
+        </if>
+        <if test="iDeleted != null">
+            iDeleted=#{iDeleted,jdbcType=INTEGER},
+        </if>
+        <if test="iOrder != null">
+            iOrder=#{iOrder,jdbcType=INTEGER},
+        </if>
+        <if test="parentId != null">
+            parent_id=#{parentId,jdbcType=BIGINT},
+        </if>
+        <if test="level != null">
+            level=#{level,jdbcType=INTEGER},
+        </if>
+        <if test="path != null and path != ''">
+            path=#{path,jdbcType=VARCHAR},
+        </if>
+        <if test="sortNum != null">
+            sort_num=#{sortNum,jdbcType=INTEGER},
+        </if>
+        <if test="iSend != null">
+            isEnd=#{iSend,jdbcType=INTEGER},
+        </if>
+        <if test="stopStatus != null">
+            stopstatus=#{stopStatus,jdbcType=INTEGER},
+        </if>
+        <if test="stopTime != null">
+            stop_time=#{stopTime,jdbcType=DATE},
+        </if>
+        <if test="pubts != null">
+            pubts=#{pubts,jdbcType=DATE},
+        </if>
+        <if test="tenantId != null">
+            tenant_id=#{tenantId,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null">
+            create_time=#{createTime,jdbcType=DATE},
+        </if>
+        <if test="createDate != null">
+            create_date=#{createDate,jdbcType=DATE},
+        </if>
+        <if test="modifyTime != null">
+            modify_time=#{modifyTime,jdbcType=DATE},
+        </if>
+        <if test="modifyDate != null">
+            modify_date=#{modifyDate,jdbcType=DATE},
+        </if>
+        <if test="creator != null and creator != ''">
+            creator=#{creator,jdbcType=VARCHAR},
+        </if>
+        <if test="modifier != null and modifier != ''">
+            modifier=#{modifier,jdbcType=VARCHAR},
+        </if>
+        <if test="creatorId != null">
+            creatorId=#{creatorId,jdbcType=BIGINT},
+        </if>
+        <if test="modifierId != null">
+            modifierId=#{modifierId,jdbcType=BIGINT},
+        </if>
+        <if test="cName2 != null and cName2 != ''">
+            cName2=#{cName2,jdbcType=VARCHAR},
+        </if>
+        <if test="cName3 != null and cName3 != ''">
+            cName3=#{cName3,jdbcType=VARCHAR},
+        </if>
+        <if test="cName4 != null and cName4 != ''">
+            cName4=#{cName4,jdbcType=VARCHAR},
+        </if>
+        <if test="cName5 != null and cName5 != ''">
+            cName5=#{cName5,jdbcType=VARCHAR},
+        </if>
+        <if test="cName6 != null and cName6 != ''">
+            cName6=#{cName6,jdbcType=VARCHAR},
+        </if>
+        <if test="yTenantId != null and yTenantId != ''">
+            ytenant_id=#{yTenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <sql id="columnSelective">
+        <if test="id != null">
+            id,
+        </if>
+        <if test="cCode != null and cCode != ''">
+            cCode,
+        </if>
+        <if test="cName != null and cName != ''">
+            cName,
+        </if>
+        <if test="iCreatorType != null">
+            iCreatorType,
+        </if>
+        <if test="cCreatorName != null and cCreatorName != ''">
+            cCreatorName,
+        </if>
+        <if test="orgId != null and orgId != ''">
+            orgId,
+        </if>
+        <if test="iShopId != null">
+            iShopID,
+        </if>
+        <if test="cErpCode != null and cErpCode != ''">
+            cErpCode,
+        </if>
+        <if test="isEnabled != null">
+            isEnabled,
+        </if>
+        <if test="iDeleted != null">
+            iDeleted,
+        </if>
+        <if test="iOrder != null">
+            iOrder,
+        </if>
+        <if test="parentId != null">
+            parent_id,
+        </if>
+        <if test="level != null">
+            level,
+        </if>
+        <if test="path != null and path != ''">
+            path,
+        </if>
+        <if test="sortNum != null">
+            sort_num,
+        </if>
+        <if test="iSend != null">
+            isEnd,
+        </if>
+        <if test="stopStatus != null">
+            stopstatus,
+        </if>
+        <if test="stopTime != null">
+            stop_time,
+        </if>
+        <if test="pubts != null">
+            pubts,
+        </if>
+        <if test="tenantId != null">
+            tenant_id,
+        </if>
+        <if test="createTime != null">
+            create_time,
+        </if>
+        <if test="createDate != null">
+            create_date,
+        </if>
+        <if test="modifyTime != null">
+            modify_time,
+        </if>
+        <if test="modifyDate != null">
+            modify_date,
+        </if>
+        <if test="creator != null and creator != ''">
+            creator,
+        </if>
+        <if test="modifier != null and modifier != ''">
+            modifier,
+        </if>
+        <if test="creatorId != null">
+            creatorId,
+        </if>
+        <if test="modifierId != null">
+            modifierId,
+        </if>
+        <if test="cName2 != null and cName2 != ''">
+            cName2,
+        </if>
+        <if test="cName3 != null and cName3 != ''">
+            cName3,
+        </if>
+        <if test="cName4 != null and cName4 != ''">
+            cName4,
+        </if>
+        <if test="cName5 != null and cName5 != ''">
+            cName5,
+        </if>
+        <if test="cName6 != null and cName6 != ''">
+            cName6,
+        </if>
+        <if test="yTenantId != null and yTenantId != ''">
+            ytenant_id
+        </if>
+    </sql>
+
+    <sql id="columnValueSelective">
+        <if test="id != null">
+            #{id,jdbcType=BIGINT},
+        </if>
+        <if test="cCode != null and cCode != ''">
+            #{cCode,jdbcType=VARCHAR},
+        </if>
+        <if test="cName != null and cName != ''">
+            #{cName,jdbcType=VARCHAR},
+        </if>
+        <if test="iCreatorType != null">
+            #{iCreatorType,jdbcType=INTEGER},
+        </if>
+        <if test="cCreatorName != null and cCreatorName != ''">
+            #{cCreatorName,jdbcType=VARCHAR},
+        </if>
+        <if test="orgId != null and orgId != ''">
+            #{orgId,jdbcType=VARCHAR},
+        </if>
+        <if test="iShopId != null">
+            #{iShopId,jdbcType=BIGINT},
+        </if>
+        <if test="cErpCode != null and cErpCode != ''">
+            #{cErpCode,jdbcType=VARCHAR},
+        </if>
+        <if test="isEnabled != null">
+            #{isEnabled,jdbcType=INTEGER},
+        </if>
+        <if test="iDeleted != null">
+            #{iDeleted,jdbcType=INTEGER},
+        </if>
+        <if test="iOrder != null">
+            #{iOrder,jdbcType=INTEGER},
+        </if>
+        <if test="parentId != null">
+            #{parentId,jdbcType=BIGINT},
+        </if>
+        <if test="level != null">
+            #{level,jdbcType=INTEGER},
+        </if>
+        <if test="path != null and path != ''">
+            #{path,jdbcType=VARCHAR},
+        </if>
+        <if test="sortNum != null">
+            #{sortNum,jdbcType=INTEGER},
+        </if>
+        <if test="iSend != null">
+            #{iSend,jdbcType=INTEGER},
+        </if>
+        <if test="stopStatus != null">
+            #{stopStatus,jdbcType=INTEGER},
+        </if>
+        <if test="stopTime != null">
+            #{stopTime,jdbcType=DATE},
+        </if>
+        <if test="pubts != null">
+            #{pubts,jdbcType=DATE},
+        </if>
+        <if test="tenantId != null">
+            #{tenantId,jdbcType=BIGINT},
+        </if>
+        <if test="createTime != null">
+            #{createTime,jdbcType=DATE},
+        </if>
+        <if test="createDate != null">
+            #{createDate,jdbcType=DATE},
+        </if>
+        <if test="modifyTime != null">
+            #{modifyTime,jdbcType=DATE},
+        </if>
+        <if test="modifyDate != null">
+            #{modifyDate,jdbcType=DATE},
+        </if>
+        <if test="creator != null and creator != ''">
+            #{creator,jdbcType=VARCHAR},
+        </if>
+        <if test="modifier != null and modifier != ''">
+            #{modifier,jdbcType=VARCHAR},
+        </if>
+        <if test="creatorId != null">
+            #{creatorId,jdbcType=BIGINT},
+        </if>
+        <if test="modifierId != null">
+            #{modifierId,jdbcType=BIGINT},
+        </if>
+        <if test="cName2 != null and cName2 != ''">
+            #{cName2,jdbcType=VARCHAR},
+        </if>
+        <if test="cName3 != null and cName3 != ''">
+            #{cName3,jdbcType=VARCHAR},
+        </if>
+        <if test="cName4 != null and cName4 != ''">
+            #{cName4,jdbcType=VARCHAR},
+        </if>
+        <if test="cName5 != null and cName5 != ''">
+            #{cName5,jdbcType=VARCHAR},
+        </if>
+        <if test="cName6 != null and cName6 != ''">
+            #{cName6,jdbcType=VARCHAR},
+        </if>
+        <if test="yTenantId != null and yTenantId != ''">
+            #{yTenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <sql id="allColumnCond">
+        <if test="id != null">
+            AND id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="cCode != null and cCode != ''">
+            AND cCode=#{cCode,jdbcType=VARCHAR}
+        </if>
+        <if test="cName != null and cName != ''">
+            AND cName=#{cName,jdbcType=VARCHAR}
+        </if>
+        <if test="iCreatorType != null">
+            AND iCreatorType=#{iCreatorType,jdbcType=INTEGER}
+        </if>
+        <if test="cCreatorName != null and cCreatorName != ''">
+            AND cCreatorName=#{cCreatorName,jdbcType=VARCHAR}
+        </if>
+        <if test="orgId != null and orgId != ''">
+            AND orgId=#{orgId,jdbcType=VARCHAR}
+        </if>
+        <if test="iShopId != null">
+            AND iShopID=#{iShopId,jdbcType=BIGINT}
+        </if>
+        <if test="cErpCode != null and cErpCode != ''">
+            AND cErpCode=#{cErpCode,jdbcType=VARCHAR}
+        </if>
+        <if test="isEnabled != null">
+            AND isEnabled=#{isEnabled,jdbcType=INTEGER}
+        </if>
+        <if test="iDeleted != null">
+            AND iDeleted=#{iDeleted,jdbcType=INTEGER}
+        </if>
+        <if test="iOrder != null">
+            AND iOrder=#{iOrder,jdbcType=INTEGER}
+        </if>
+        <if test="parentId != null">
+            AND parent_id=#{parentId,jdbcType=BIGINT}
+        </if>
+        <if test="level != null">
+            AND level=#{level,jdbcType=INTEGER}
+        </if>
+        <if test="path != null and path != ''">
+            AND path=#{path,jdbcType=VARCHAR}
+        </if>
+        <if test="sortNum != null">
+            AND sort_num=#{sortNum,jdbcType=INTEGER}
+        </if>
+        <if test="iSend != null">
+            AND isEnd=#{iSend,jdbcType=INTEGER}
+        </if>
+        <if test="stopStatus != null">
+            AND stopstatus=#{stopStatus,jdbcType=INTEGER}
+        </if>
+        <if test="stopTime != null">
+            AND stop_time=#{stopTime,jdbcType=DATE}
+        </if>
+        <if test="pubts != null">
+            AND pubts=#{pubts,jdbcType=DATE}
+        </if>
+        <if test="tenantId != null">
+            AND tenant_id=#{tenantId,jdbcType=BIGINT}
+        </if>
+        <if test="createTime != null">
+            AND create_time=#{createTime,jdbcType=DATE}
+        </if>
+        <if test="createDate != null">
+            AND create_date=#{createDate,jdbcType=DATE}
+        </if>
+        <if test="modifyTime != null">
+            AND modify_time=#{modifyTime,jdbcType=DATE}
+        </if>
+        <if test="modifyDate != null">
+            AND modify_date=#{modifyDate,jdbcType=DATE}
+        </if>
+        <if test="creator != null and creator != ''">
+            AND creator=#{creator,jdbcType=VARCHAR}
+        </if>
+        <if test="modifier != null and modifier != ''">
+            AND modifier=#{modifier,jdbcType=VARCHAR}
+        </if>
+        <if test="creatorId != null">
+            AND creatorId=#{creatorId,jdbcType=BIGINT}
+        </if>
+        <if test="modifierId != null">
+            AND modifierId=#{modifierId,jdbcType=BIGINT}
+        </if>
+        <if test="cName2 != null and cName2 != ''">
+            AND cName2=#{cName2,jdbcType=VARCHAR}
+        </if>
+        <if test="cName3 != null and cName3 != ''">
+            AND cName3=#{cName3,jdbcType=VARCHAR}
+        </if>
+        <if test="cName4 != null and cName4 != ''">
+            AND cName4=#{cName4,jdbcType=VARCHAR}
+        </if>
+        <if test="cName5 != null and cName5 != ''">
+            AND cName5=#{cName5,jdbcType=VARCHAR}
+        </if>
+        <if test="cName6 != null and cName6 != ''">
+            AND cName6=#{cName6,jdbcType=VARCHAR}
+        </if>
+        <if test="yTenantId != null and yTenantId != ''">
+            AND ytenant_id=#{yTenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <insert id="insert" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        INSERT INTO iuap_apdoc_coredoc.aa_customertrade (
+        <include refid="allColumn" />
+        ) VALUES (
+        <include refid="allColumnValue" />
+        )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        INSERT INTO iuap_apdoc_coredoc.aa_customertrade (
+        <include refid="columnSelective" />
+        ) VALUES (
+        <include refid="columnValueSelective" />
+        )
+    </insert>
+
+    <delete id="delById" parameterType="string">
+    DELETE FROM iuap_apdoc_coredoc.aa_customertrade
+    WHERE
+        id=#{value}
+</delete>
+
+    <delete id="delByIds" parameterType="java.util.List">
+        DELETE FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE id IN
+        <foreach collection="list" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="del" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        DELETE FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </delete>
+
+    <update id="updateById" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        UPDATE iuap_apdoc_coredoc.aa_customertrade
+        <set>
+            <include refid="allColumnSet" />
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectById" parameterType="string" resultType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE id=#{value}
+    </select>
+
+    <select id="selectByIds" parameterType="java.util.List" resultType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE id IN
+        <foreach collection="list" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="select" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade" resultType="com.local.entity.YueSound.YueSoundCustomerTrade">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </select>
+
+    <select id="count" parameterType="com.local.entity.YueSound.YueSoundCustomerTrade" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM iuap_apdoc_coredoc.aa_customertrade
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </select>
+</mapper>
+

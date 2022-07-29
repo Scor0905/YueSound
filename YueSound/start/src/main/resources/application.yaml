@@ -1,0 +1,43 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: tran
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.0.12:3306/scmmp?useSSL=false
+    username: read_dc
+    password: readzADF%2022qwer
+  cache:
+    type: ehcache
+    ehcache:
+      config: ehcache.xml
+  redis:
+    host: 172.16.0.15 #192.168.100.85
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8 #最大连接
+        max-idle: 4 #最大空闲连接
+        min-idle: 0 #最小空闲连接
+        max-wait: 1000 #连接等待时间
+yueSound:
+   appKey: 5ff99ad0f5c646088f336eb7b0322cc9
+   appSecret: 64ffcbd3830846018cfbc12271c1920c
+   generateTokenUrl: https://ywzt.chinahys.com/iuap-api-auth/open-auth/selfAppAuth/getAccessToken
+   managementClassTreeUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/managementclass/tree
+   managementClassDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/managementclass/detail
+   managementClassSaveUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/managementclass/save
+   productDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/product/detail
+   unitListUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/unit/list
+   batchDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/product/batch
+   custcategoryTreeUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/custcategory/tree
+   custcategoryDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/custcategory/detail
+   customertradeDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/customertrade/detail
+   customerUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/crm/customer/getbyid
+   staffUserUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/staff/detail
+   merchantDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/merchant/detail
+   adminDeptDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/admindept/detail
+U9:
+  soapAction: http://www.UFIDA.org/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService/Do
+  U9InterfaceUrl: http://192.168.2.233:80/U9/Services/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService.svc

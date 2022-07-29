@@ -1,0 +1,240 @@
+2022-07-27 16:29:53.382 INFO  20760 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 20760 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:29:53.385 INFO  20760 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:29:53.990 INFO  20760 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:29:53.992 INFO  20760 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:29:54.025 INFO  20760 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:29:54.115 WARN  20760 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:29:54.429 INFO  20760 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:29:54.435 INFO  20760 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:29:54.435 INFO  20760 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:29:54.550 INFO  20760 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:29:54.550 INFO  20760 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1124 ms 
+2022-07-27 16:29:55.765 INFO  20760 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:29:55.774 INFO  20760 --- [main] com.local.StartApplication - Started StartApplication in 2.836 seconds (JVM running for 3.72) 
+2022-07-27 16:29:56.178 INFO  20760 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:30:24.085 INFO  20760 --- [http-nio-8092-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022-07-27 16:30:24.085 INFO  20760 --- [http-nio-8092-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2022-07-27 16:30:24.088 INFO  20760 --- [http-nio-8092-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms 
+2022-07-27 16:30:24.153 INFO  20760 --- [http-nio-8092-exec-1] com.local.test.OATestController - bip提交单子数据:ss 
+2022-07-27 16:30:38.412 INFO  20760 --- [http-nio-8092-exec-6] com.local.test.OATestController - bip提交单子数据:ss 
+2022-07-27 16:31:40.164 INFO  20760 --- [http-nio-8092-exec-3] com.local.test.OATestController - bip提交单子数据:null 
+2022-07-27 16:33:37.735 INFO  19364 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 19364 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:33:37.737 INFO  19364 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:33:38.285 INFO  19364 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:33:38.287 INFO  19364 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:33:38.307 INFO  19364 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:33:38.391 WARN  19364 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:33:38.739 INFO  19364 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:33:38.747 INFO  19364 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:33:38.747 INFO  19364 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:33:38.852 INFO  19364 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:33:38.853 INFO  19364 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1073 ms 
+2022-07-27 16:33:40.122 INFO  19364 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:33:40.135 INFO  19364 --- [main] com.local.StartApplication - Started StartApplication in 2.833 seconds (JVM running for 4.33) 
+2022-07-27 16:33:40.567 INFO  19364 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:33:45.031 INFO  19364 --- [http-nio-8092-exec-2] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022-07-27 16:33:45.032 INFO  19364 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2022-07-27 16:33:45.034 INFO  19364 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms 
+2022-07-27 16:33:45.131 INFO  19364 --- [http-nio-8092-exec-2] com.local.test.OATestController - bip提交单子数据:null 
+2022-07-27 16:36:25.460 INFO  23856 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 23856 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:36:25.463 INFO  23856 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:36:26.048 INFO  23856 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:36:26.050 INFO  23856 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:36:26.071 INFO  23856 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:36:26.155 WARN  23856 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:36:26.493 INFO  23856 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:36:26.500 INFO  23856 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:36:26.500 INFO  23856 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:36:26.608 INFO  23856 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:36:26.608 INFO  23856 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1104 ms 
+2022-07-27 16:36:27.826 INFO  23856 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:36:27.837 INFO  23856 --- [main] com.local.StartApplication - Started StartApplication in 2.862 seconds (JVM running for 3.808) 
+2022-07-27 16:36:28.254 INFO  23856 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:36:34.821 INFO  23856 --- [http-nio-8092-exec-6] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022-07-27 16:36:34.821 INFO  23856 --- [http-nio-8092-exec-6] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2022-07-27 16:36:34.824 INFO  23856 --- [http-nio-8092-exec-6] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms 
+2022-07-27 16:36:41.979 WARN  23856 --- [http-nio-8092-exec-3] o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported] 
+2022-07-27 16:36:46.997 INFO  23856 --- [http-nio-8092-exec-4] com.local.test.OATestController - bip提交单子数据:null 
+2022-07-27 16:38:48.343 INFO  23856 --- [http-nio-8092-exec-7] com.local.test.OATestController - bip提交单子数据:null 
+2022-07-27 16:38:56.723 INFO  18756 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 18756 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:38:56.726 INFO  18756 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:38:57.294 INFO  18756 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:38:57.296 INFO  18756 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:38:57.317 INFO  18756 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:38:57.398 WARN  18756 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:38:57.729 INFO  18756 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:38:57.736 INFO  18756 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:38:57.736 INFO  18756 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:38:57.838 INFO  18756 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:38:57.838 INFO  18756 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1065 ms 
+2022-07-27 16:38:58.958 INFO  18756 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:38:58.968 INFO  18756 --- [main] com.local.StartApplication - Started StartApplication in 2.75 seconds (JVM running for 3.65) 
+2022-07-27 16:38:59.395 INFO  18756 --- [main] com.local.YueSound.YueSoundUtils - 获取token失败:签名不正确 
+2022-07-27 16:38:59.454 INFO  18756 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:39:02.345 INFO  18756 --- [http-nio-8092-exec-2] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022-07-27 16:39:02.346 INFO  18756 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2022-07-27 16:39:02.348 INFO  18756 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms 
+2022-07-27 16:39:02.406 WARN  18756 --- [http-nio-8092-exec-2] o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.String com.local.test.OATestController.test(java.lang.String)] 
+2022-07-27 16:39:10.349 ERROR 18756 --- [main] com.local.run.BaseRunner - BaseRunner 尝试获取基础数据树失败 
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1689)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1597)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1383)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1366)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:1093)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:421)
+	at org.springframework.data.redis.core.RedisConnectionUtils.fetchConnection(RedisConnectionUtils.java:193)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:144)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:105)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:211)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.local.service.YueSound.YueSoundOpenImpl.getUnitList(YueSoundOpenImpl.java:165)
+	at com.local.run.BaseRunner.run(BaseRunner.java:30)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.local.StartApplication.main(StartApplication.java:14)
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1595)
+	... 19 common frames omitted
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:216)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201)
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:70)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:571)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:298)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:223)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103)
+	... 20 common frames omitted
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /172.16.0.15:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask$$$capture(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-07-27 16:39:42.128 INFO  18756 --- [http-nio-8092-exec-4] com.local.test.OATestController - bip提交单子数据:{
+    "ss":"ss"
+} 
+2022-07-27 16:39:53.200 WARN  18756 --- [http-nio-8092-exec-5] o.s.w.s.m.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.lang.String com.local.test.OATestController.test(java.lang.String)] 
+2022-07-27 16:39:59.966 INFO  18756 --- [http-nio-8092-exec-8] com.local.test.OATestController - bip提交单子数据:{
+    "ss":"ss"
+} 
+2022-07-27 16:40:07.635 INFO  18756 --- [http-nio-8092-exec-7] com.local.test.OATestController - bip提交单子数据:{
+   "ss"
+} 
+2022-07-27 16:40:28.740 INFO  24784 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 24784 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:40:28.744 INFO  24784 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:40:29.305 INFO  24784 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:40:29.307 INFO  24784 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:40:29.334 INFO  24784 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:40:29.423 WARN  24784 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:40:29.779 INFO  24784 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:40:29.786 INFO  24784 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:40:29.787 INFO  24784 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:40:29.894 INFO  24784 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:40:29.894 INFO  24784 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1109 ms 
+2022-07-27 16:40:31.272 INFO  24784 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:40:31.282 INFO  24784 --- [main] com.local.StartApplication - Started StartApplication in 3.01 seconds (JVM running for 3.969) 
+2022-07-27 16:40:31.700 INFO  24784 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:41:18.388 INFO  24964 --- [main] com.local.StartApplication - Starting StartApplication using Java 1.8.0_241 on LAPTOP-5FUOJDVF with PID 24964 (E:\dizhen\yueshengcode\start\target\classes started by tomato in E:\dizhen\yueshengcode) 
+2022-07-27 16:41:18.390 INFO  24964 --- [main] com.local.StartApplication - No active profile set, falling back to 1 default profile: "default" 
+2022-07-27 16:41:18.934 INFO  24964 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode 
+2022-07-27 16:41:18.936 INFO  24964 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode. 
+2022-07-27 16:41:18.958 INFO  24964 --- [main] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces. 
+2022-07-27 16:41:19.047 WARN  24964 --- [main] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[com.local.dao]' package. Please check your configuration. 
+2022-07-27 16:41:19.371 INFO  24964 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8092 (http) 
+2022-07-27 16:41:19.380 INFO  24964 --- [main] org.apache.catalina.core.StandardService - Starting service [Tomcat] 
+2022-07-27 16:41:19.380 INFO  24964 --- [main] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.64] 
+2022-07-27 16:41:19.491 INFO  24964 --- [main] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext 
+2022-07-27 16:41:19.491 INFO  24964 --- [main] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1062 ms 
+2022-07-27 16:41:20.688 INFO  24964 --- [main] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8092 (http) with context path '' 
+2022-07-27 16:41:20.698 INFO  24964 --- [main] com.local.StartApplication - Started StartApplication in 2.803 seconds (JVM running for 3.668) 
+2022-07-27 16:41:21.120 INFO  24964 --- [main] com.local.YueSound.YueSoundUtils - 获取token失败:签名不正确 
+2022-07-27 16:41:21.179 INFO  24964 --- [main] com.local.YueSound.YueSoundUtils - token:7adcfa6291be45fb843002c7556d279f 
+2022-07-27 16:41:31.933 ERROR 24964 --- [main] com.local.run.BaseRunner - BaseRunner 尝试获取基础数据树失败 
+org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.translateException(LettuceConnectionFactory.java:1689)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1597)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1383)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1366)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:1093)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:421)
+	at org.springframework.data.redis.core.RedisConnectionUtils.fetchConnection(RedisConnectionUtils.java:193)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:144)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:105)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:211)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:191)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:97)
+	at org.springframework.data.redis.core.DefaultValueOperations.get(DefaultValueOperations.java:54)
+	at com.local.service.YueSound.YueSoundOpenImpl.getUnitList(YueSoundOpenImpl.java:165)
+	at com.local.run.BaseRunner.run(BaseRunner.java:30)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:771)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	at com.local.StartApplication.main(StartApplication.java:14)
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109)
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$ExceptionTranslatingConnectionProvider.getConnection(LettuceConnectionFactory.java:1595)
+	... 19 common frames omitted
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 172.16.0.15:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78)
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56)
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:330)
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:216)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115)
+	at java.util.Optional.orElseGet(Optional.java:267)
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211)
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201)
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:70)
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:571)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:298)
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:223)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122)
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117)
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103)
+	... 20 common frames omitted
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /172.16.0.15:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261)
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:153)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask$$$capture(AbstractEventExecutor.java:174)
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute$$$capture(AbstractEventExecutor.java:167)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:470)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:503)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+2022-07-27 16:41:53.902 INFO  24964 --- [http-nio-8092-exec-2] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2022-07-27 16:41:53.902 INFO  24964 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2022-07-27 16:41:53.904 INFO  24964 --- [http-nio-8092-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms 
+2022-07-27 16:41:53.970 INFO  24964 --- [http-nio-8092-exec-2] com.local.test.OATestController - bip提交单子数据:"sss" 

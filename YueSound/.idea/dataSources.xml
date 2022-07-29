@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="iuap_apdoc_coredoc@172.16.0.12" uuid="5c9951dc-d6dd-4efa-b888-4388effeecea">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://172.16.0.12:3306/iuap_apdoc_coredoc</jdbc-url>
+    </data-source>
+  </component>
+</project>
