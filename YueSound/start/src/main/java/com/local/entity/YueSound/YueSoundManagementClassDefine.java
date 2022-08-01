@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * @author hhs
  * @create 2022-07-29 10:25
- * 客户分类自定义项
+ * 物料分类自定义项
  */
 @Data
 public class YueSoundManagementClassDefine {

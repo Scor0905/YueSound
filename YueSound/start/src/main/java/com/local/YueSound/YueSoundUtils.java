@@ -50,37 +50,12 @@ public class YueSoundUtils {
     private static final String TEST_URL = "http://192.168.2.233:80/U9/Services/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService.svc";
     private static final String SOAP_ACTION = "http://www.UFIDA.org/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService/Do";
     private static final String OA_URL = "http://192.168.2.220/sys/webservice/kmReviewWebserviceService?wsdl";
-    private static final String OA_XMLNS_PARAM="xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">" ;
-    private static final String OA_KM_REVIEW_PARAMTER_FROM_START="<soap:kmReviewParamterForm>" ;
-    private static final String OA_KM_REVIEW_PARAMTER_FROM_END="</soap:kmReviewParamterForm>" ;
-    private static final String OA_ATTACHMENT_FROMS_START="<soap:attachmentForms>" ;
-    private static final String OA_ATTACHMENT_FROMS_END="</soap:attachmentForms>" ;
-    private static final String OA_ATTACHMENT_VALUES_START="<soap:attachmentValues>" ;
-    private static final String OA_ATTACHMENT_VALUES_END="</soap:attachmentValues>" ;
-    private static final String OA_AUTH_AREA_ID_START="<soap:authAreaId>" ;
-    private static final String OA_AUTH_AREA_ID_END="</soap:authAreaId>" ;
-    private static final String OA_DOC_CONTENT_START="<soap:docContent>" ;
-    private static final String OA_DOC_CONTENT_END="</soap:docContent>" ;
-    private static final String OA_DOC_CREATOR_START="<soap:docCreator>" ;
-    private static final String OA_DOC_CREATOR_END="</soap:docCreator>" ;
-    private static final String OA_DOC_PROPERTY_START="<soap:docProperty>" ;
-    private static final String OA_DOC_PROPERTY_END="</soap:docProperty>" ;
-    private static final String OA_DOC_STATUS_START="<soap:docStatus>" ;
-    private static final String OA_DOC_STATUS_END="</soap:docStatus>" ;
-    private static final String OA_DOC_SUBJECT_START="<soap:docSubject>" ;
-    private static final String OA_DOC_SUBJECT_END="</soap:docSubject>" ;
-    private static final String OA_FDID_START="<soap:fdId>" ;
-    private static final String OA_FDID_END="</soap:fdId>" ;
-    private static final String OA_FD_KEYWORD_START="<soap:fdKeyword>" ;
-    private static final String OA_FD_KEYWORD_END="</soap:fdKeyword>" ;
-    private static final String OA_FD_SOURCE_START="<soap:fdSource>" ;
-    private static final String OA_FD_SOURCE_END="</soap:fdSource>" ;
-    private static final String OA_FD_TEMPLATEID_START="<soap:fdTemplateId>" ;
-    private static final String OA_FD_TEMPLATEID_END="</soap:fdTemplateId>" ;
-    private static final String OA_FLOW_PARAM_START="<soap:flowParam>" ;
-    private static final String OA_FLOW_PARAM_END="</soap:flowParam>" ;
-    private static final String OA_FROM_VALUES_START="<soap:formValues>" ;
-    private static final String OA_FROM_VALUES_END="</soap:formValues>" ;
+    private static final String OA_XMLNS_PARAM="xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"  xmlns:web=\"http://webservice.review.km.kmss.landray.com/\">" ;
+    private static final String OA_KM_REVIEW_PARAMTER_FROM_START="<web:addReview>" ;
+    private static final String OA_KM_REVIEW_PARAMTER_FROM_END="</web:addReview>" ;
+    private static final String OA_KM_ARG_START="<arg0>" ;
+    private static final String OA_KM_ARG_END="</arg0>" ;
+
 
     /* @Autowired
     private RedisTemplate redisTemplate;
@@ -206,27 +181,19 @@ public class YueSoundUtils {
         return doResult;
     }
 
-    public Object getOAData(){
-        // 流程表单
-        String formValues = "{\"fd_2eddbf023c8292\":\"张三\", \"fd_2edd2f83f68242\":\"咨询部\", \"fd_2edd2fa69f6fc6\":\"\", \"fd_2eddbf09f9bc96\":\"2011-10-26\", \"fd_2edd2fb18e7f90\":{\"fd_2edd2fb18e7f90.fd_2eddbef4da4688\":[\"555555\",\"777777\"], \"fd_2edd2fb18e7f90.fd_2edd2fc8001062\":[\"444444\",\"666666\"], \"fd_2edd2fb18e7f90.fdId\":[\"1332472122898ac618f3e22460cab595\",\"13324721228b50c184d82c44ceca5301\"]}}";
-        // 流程参数
-        String flowParam = "{auditNode:\"请审核\", futureNodeId:\"N7\", changeNodeHandlers:[\"N7:1183b0b84ee4f581bba001c47a78b2d9;131d019fbac792eab0f0a684c8a8d0ec\"]}";
+    /*public Object getOAData(String data){
+
         StringBuilder sb=new StringBuilder();
         sb.append(SOAP_ENVELOPE_START).append(OA_XMLNS_PARAM).append(SOAP_HEADER_START).append(SOAP_HEADER_END).append(SOAP_BODY_START)
-                .append(OA_KM_REVIEW_PARAMTER_FROM_START).append(OA_ATTACHMENT_FROMS_START).append(OA_ATTACHMENT_FROMS_END).append(OA_ATTACHMENT_VALUES_START).append(OA_ATTACHMENT_VALUES_END)
-                .append(OA_AUTH_AREA_ID_START).append(OA_AUTH_AREA_ID_END).append(OA_DOC_CONTENT_START).append(OA_DOC_CONTENT_END).append(OA_DOC_CREATOR_START).append("{\"PersonNo\": \"00012\"}").append(OA_DOC_CREATOR_END)
-                .append(OA_DOC_PROPERTY_START).append(OA_DOC_PROPERTY_END).append(OA_DOC_STATUS_START).append(OA_DOC_STATUS_END).append(OA_DOC_SUBJECT_START).append("物料申请采购单").append(OA_DOC_SUBJECT_END).append(OA_FDID_START).append(OA_FDID_END)
-                .append(OA_FD_KEYWORD_START).append("[\"物料\", \"采购\"]").append(OA_FD_KEYWORD_END).append(OA_FD_SOURCE_START).append(OA_FD_SOURCE_END).append(OA_FD_TEMPLATEID_START).append("131eb0cfd7db55e6980e9ce4985a1387").append(OA_FD_TEMPLATEID_END)
-                .append(OA_FLOW_PARAM_START).append(flowParam).append(OA_FLOW_PARAM_END).append(OA_FROM_VALUES_START).append(formValues).append(OA_FROM_VALUES_END).append(OA_KM_REVIEW_PARAMTER_FROM_END).append(SOAP_BODY_END).append(SOAP_ENVELOPE_END);
+                .append(OA_KM_REVIEW_PARAMTER_FROM_START).append(OA_KM_ARG_START).append(data).append(OA_KM_ARG_END).append(OA_KM_REVIEW_PARAMTER_FROM_END).append(SOAP_BODY_END).append(SOAP_ENVELOPE_END);
         System.out.println(sb);
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type","text/xml;charset=UTF-8");
-        //headers.add("SOAPAction", SOAP_ACTION);
         HttpEntity<String> requestEntity = new HttpEntity<>(sb.toString(), headers);
         ResponseEntity<String> resEntity = restTemplate.exchange(OA_URL, HttpMethod.POST, requestEntity, String.class);
         String message = resEntity.getBody();
         System.out.println(message);
         return null;
-    }
+    }*/
 
 }

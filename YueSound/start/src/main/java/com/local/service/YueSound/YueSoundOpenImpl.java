@@ -5,11 +5,14 @@ import cn.hutool.core.date.DateUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.local.YueSound.YueSoundUtils;
+import com.local.dao.ManagementClassDefineDao;
 import com.local.entity.YueSound.YueSoundCustcategory;
 import com.local.entity.YueSound.YueSoundManagementClass;
+import com.local.entity.YueSound.YueSoundManagementClassDefine;
 import com.local.entity.YueSound.YueSoundUnit;
 import com.local.service.U9.U9Interface;
 import com.local.util.*;
+import com.sun.xml.bind.v2.model.core.ID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +22,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -81,14 +85,14 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
     private RedisTemplate redisTemplate;
     @Autowired
     private U9Interface u9Interface;
+    @Autowired
+    private ManagementClassDefineDao managementClassDefineDao;
     private static  final  String SUCCESS_CODE="200";
-    private static  final  String FLAG_TRUE="true";
-    private static  final  String FLAG_FALSE="false";
-
 
 
     //获取物料分类详情并调用u9料品分类新增接口
     @Override
+    @Transactional
     public Response saveOrUpdateManagementClassDetail(YueSoundParam param) {
         Response response = this.generateToken();
         if (ObjectUtils.isEmpty(response.getData())){
@@ -104,6 +108,19 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
             //调用U9新增料品分类接口
            response = u9Interface.CreateItemCategory(data);
            if(!response.isSuccess()){
+               List<YueSoundManagementClassDefine> dataList = managementClassDefineDao.selectById(param.getId());
+               if(CollectionUtils.isEmpty(dataList)){
+                   YueSoundManagementClassDefine managementClassDefine=new YueSoundManagementClassDefine();
+                   managementClassDefine.setId(Long.parseLong(param.getId()));
+                   managementClassDefine.setDefine59(response.getMsg()); // 错误信息
+                   managementClassDefine.setDefine60(ConvertConstant.FLAG_FALSE); //同步状态
+                   managementClassDefineDao.insert(managementClassDefine);
+               }else{
+                   YueSoundManagementClassDefine managementClassDefine = dataList.get(0);
+                   managementClassDefine.setDefine59(response.getMsg());
+                   managementClassDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                   managementClassDefineDao.updateById(managementClassDefine);
+               }
                //调用bip接口进行回写错误信息
                Response res = this.generateToken();
                if (ObjectUtils.isEmpty(res.getData())){

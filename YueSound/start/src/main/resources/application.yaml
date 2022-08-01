@@ -6,8 +6,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.0.12:3306/scmmp?useSSL=false
-    username: read_dc
-    password: readzADF%2022qwer
+    username: oper_dc
+    password: operzADF2020qwer
   cache:
     type: ehcache
     ehcache:
@@ -21,6 +21,12 @@ spring:
         max-idle: 4 #最大空闲连接
         min-idle: 0 #最小空闲连接
         max-wait: 1000 #连接等待时间
+km:
+  address: http://192.168.2.220/sys/webservice/kmReviewWebserviceService
+  service_class: com.local.service.km.webservice.IKmReviewWebserviceService
+  service_bean: kmReviewWebserviceService
+  user: 01344
+  password: 8e8d6f3196a7e8a308101955b8b96c23
 yueSound:
    appKey: 5ff99ad0f5c646088f336eb7b0322cc9
    appSecret: 64ffcbd3830846018cfbc12271c1920c

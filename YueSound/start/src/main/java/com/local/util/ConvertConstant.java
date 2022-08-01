@@ -11,5 +11,7 @@ public class ConvertConstant {
     public static  final  String U9_USER_ID="1001505124454187";
     public static  final  String ACTION_UPDATE="Update";
     public static  final  String U9_ENTERPRISEID="09";
+    public static  final  String FLAG_TRUE="true";
+    public static  final  String FLAG_FALSE="false";
 
 }
