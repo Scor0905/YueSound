@@ -5,6 +5,7 @@ import lombok.Data;
 /**
  * @author hhs
  * @create 2022-07-29 11:30
+ * 客户分类
  */
 @Data
 public class YueSoundAgentCategoryDefine {

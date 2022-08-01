@@ -2,17 +2,17 @@ package com.local.service.YueSound;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.local.YueSound.YueSoundUtils;
+import com.local.dao.AgentCategoryDefineDao;
+import com.local.dao.CustomerTradeDao;
 import com.local.dao.ManagementClassDefineDao;
-import com.local.entity.YueSound.YueSoundCustcategory;
-import com.local.entity.YueSound.YueSoundManagementClass;
-import com.local.entity.YueSound.YueSoundManagementClassDefine;
-import com.local.entity.YueSound.YueSoundUnit;
+import com.local.dao.ProductDefineDao;
+import com.local.entity.YueSound.*;
 import com.local.service.U9.U9Interface;
 import com.local.util.*;
-import com.sun.xml.bind.v2.model.core.ID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +24,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.IdGenerator;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -87,6 +88,12 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
     private U9Interface u9Interface;
     @Autowired
     private ManagementClassDefineDao managementClassDefineDao;
+    @Autowired
+    private ProductDefineDao productDefineDao;
+    @Autowired
+    private AgentCategoryDefineDao  agentCategoryDefineDao;
+    @Autowired
+    private CustomerTradeDao customerTradeDao;
     private static  final  String SUCCESS_CODE="200";
 
 
@@ -121,7 +128,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                    managementClassDefine.setDefine60(ConvertConstant.FLAG_FALSE);
                    managementClassDefineDao.updateById(managementClassDefine);
                }
-               //调用bip接口进行回写错误信息
+              /* //调用bip接口进行回写错误信息
                Response res = this.generateToken();
                if (ObjectUtils.isEmpty(res.getData())){
                    return response;
@@ -141,7 +148,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                dataMap.put("define59","该分类已存在");
                outerMap.put("data",dataMap);
                JSONObject yueSoundData = yueSoundUtils.getYueSoundData(managementClassSaveUrl, urlMap, outerMap, ConvertConstant.POST_METHOD);
-               System.out.println(yueSoundData);
+               System.out.println(yueSoundData);*/
                //如果失败放到缓存里面
                //saveFailSendIdsCache(param,"ManagementClassIds");
            }
@@ -237,6 +244,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
 
     //获取物料档案批量详情并调用U9接口保存
     @Override
+    @Transactional
     public Response saveOrUpdateProduct(YueSoundParam yueSoundParam) {
         Response response = this.generateToken();
         if(ObjectUtils.isEmpty(response.getData())){
@@ -269,6 +277,24 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                 Map<String, Object> innerMap = jsonObject.getInnerMap();
                 response=u9Interface.ItemMasterAddCreate(innerMap);
                 if(!response.isSuccess()){
+                    YueSoundProductDefine define=new YueSoundProductDefine();
+                    define.setProductId(Long.parseLong(yueSoundParam.getId()));
+                    List<YueSoundProductDefine> yueSoundProductDefines = productDefineDao.select(define);
+                    if(CollectionUtils.isEmpty(yueSoundProductDefines)){
+                        YueSoundProductDefine productDefine=new YueSoundProductDefine();
+                        productDefine.setProductId(Long.parseLong(yueSoundParam.getId()));
+                        productDefine.setDefine29(response.getMsg());
+                        productDefine.setDefine30(ConvertConstant.FLAG_FALSE);
+                        productDefine.setId(Long.parseLong(IdUtil.randomUUID()));
+                        productDefineDao.insert(productDefine);
+                    }else{
+                        YueSoundProductDefine productDefine = yueSoundProductDefines.get(0);
+                        productDefine.setDefine29(response.getMsg());
+                        productDefine.setDefine30(ConvertConstant.FLAG_FALSE);
+                        productDefine.setProductId(Long.parseLong(yueSoundParam.getId()));
+                        productDefineDao.updateById(productDefine);
+                    }
+
                     //失败加入缓存
                     //saveFailSendIdsCache(yueSoundParam,"productDetailIds");
                 }
@@ -285,6 +311,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
 
     //保存或修改客户行业
     @Override
+    @Transactional
     public Response saveOrUpdateCustomerTrade(YueSoundParam param) {
         Response response = this.generateToken();
         if(ObjectUtils.isEmpty(response.getData())){return response;}
@@ -297,6 +324,21 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
             Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
             //调用U9接口
             response = u9Interface.TradeCategoryCreate(data);
+            if(!response.isSuccess()){
+                List<YueSoundCustomerTrade> yueSoundCustomerTrades = customerTradeDao.selectById(param.getId());
+                if(CollectionUtils.isEmpty(yueSoundCustomerTrades)){
+                    YueSoundCustomerTrade customerTrade=new YueSoundCustomerTrade();
+                    customerTrade.setId(Long.parseLong(param.getId()));
+                    customerTrade.setCName5(response.getMsg());
+                    customerTrade.setCName6(ConvertConstant.FLAG_FALSE);
+                    customerTradeDao.insert(customerTrade);
+                }else{
+                    YueSoundCustomerTrade customerTrade = yueSoundCustomerTrades.get(0);
+                    customerTrade.setCName5(response.getMsg());
+                    customerTrade.setCName6(ConvertConstant.FLAG_FALSE);
+                    customerTradeDao.updateById(customerTrade);
+                }
+            }
         }else{
             return Response.fail().setMsg(jsonObject.get("message").toString());
         }
@@ -367,6 +409,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
 
 
     @Override
+    @Transactional
     //保存或修改客户分类接口
     public Response saveOrUpdateCustcategory(YueSoundParam param) {
         Response response = this.generateToken();
@@ -385,6 +428,20 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
             //调用U9客户分类新增接口
             response = u9Interface.CustCategoryCreateSyncer(data);
             if(!response.isSuccess()){
+                List<YueSoundAgentCategoryDefine> yueSoundAgentCategoryDefines = agentCategoryDefineDao.selectById(param.getId());
+                if(CollectionUtils.isEmpty(yueSoundAgentCategoryDefines)){
+                    YueSoundAgentCategoryDefine agentCategoryDefine=new YueSoundAgentCategoryDefine();
+                    agentCategoryDefine.setId(Long.parseLong(param.getId()));
+                    agentCategoryDefine.setDefine59(response.getMsg());
+                    agentCategoryDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                    agentCategoryDefineDao.insert(agentCategoryDefine);
+                }else{
+                    YueSoundAgentCategoryDefine agentCategoryDefine = yueSoundAgentCategoryDefines.get(0);
+                    agentCategoryDefine.setDefine59(response.getMsg());
+                    agentCategoryDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                    agentCategoryDefineDao.updateById(agentCategoryDefine);
+                }
+
                 //失败写入缓存
                 //saveFailSendIdsCache(param,"custCategoryApplyIds");
             }

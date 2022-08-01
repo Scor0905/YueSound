@@ -1,6 +1,9 @@
 package com.local.dao;
 
+import com.local.entity.YueSound.YueSoundProductDefine;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @author hhs
@@ -8,4 +11,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProductDefineDao {
+
+    List<YueSoundProductDefine> select(YueSoundProductDefine yueSoundProductDefine);
+
+    void insert(YueSoundProductDefine yueSoundProductDefine);
+
+    void updateById(YueSoundProductDefine yueSoundProductDefine);
 }
