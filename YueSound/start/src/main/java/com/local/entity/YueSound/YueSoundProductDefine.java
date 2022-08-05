@@ -7,6 +7,7 @@ import java.util.Date;
 /**
  * @author hhs
  * @create 2022-07-29 11:16
+ * 物料自定义项
  */
 @Data
 public class YueSoundProductDefine {

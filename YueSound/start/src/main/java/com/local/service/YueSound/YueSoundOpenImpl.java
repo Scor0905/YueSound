@@ -6,10 +6,7 @@ import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.local.YueSound.YueSoundUtils;
-import com.local.dao.AgentCategoryDefineDao;
-import com.local.dao.CustomerTradeDao;
-import com.local.dao.ManagementClassDefineDao;
-import com.local.dao.ProductDefineDao;
+import com.local.dao.*;
 import com.local.entity.YueSound.*;
 import com.local.service.U9.U9Interface;
 import com.local.util.*;
@@ -77,6 +74,14 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
     private String staffUserUrl;
     @Value("${yueSound.adminDeptDetailUrl:https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/admindept/detail}")
     private String adminDeptDetailUrl;
+    @Value("${yueSound.saleOrderDetailUrl:https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/voucherorder/detail}")
+    private String saleOrderDetailUrl;
+    @Value("${yueSound.returnOrderDetailUrl:https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/vouchersalereturn/detail}")
+    private String returnOrderDetailUrl;
+    @Value("${yueSound.saleDeliveryDetailUrl:https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/voucherdelivery/detail}")
+    private String saleDeliveryDetailUrl;
+    @Value("${yueSound.wareHouseDetailUrl:https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/warehouse/detail}")
+    private String wareHouseDetailUrl;
     private static final String cacheName = "YueSound_cache";
     @Autowired
     private YueSoundUtils yueSoundUtils;
@@ -94,6 +99,8 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
     private AgentCategoryDefineDao  agentCategoryDefineDao;
     @Autowired
     private CustomerTradeDao customerTradeDao;
+    @Autowired
+    private MerchantDefineDao merchantDefineDao;
     private static  final  String SUCCESS_CODE="200";
 
 
@@ -121,6 +128,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                    managementClassDefine.setId(Long.parseLong(param.getId()));
                    managementClassDefine.setDefine59(response.getMsg()); // 错误信息
                    managementClassDefine.setDefine60(ConvertConstant.FLAG_FALSE); //同步状态
+                   managementClassDefine.setTenantId(000000L);
                    managementClassDefineDao.insert(managementClassDefine);
                }else{
                    YueSoundManagementClassDefine managementClassDefine = dataList.get(0);
@@ -286,6 +294,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                         productDefine.setDefine29(response.getMsg());
                         productDefine.setDefine30(ConvertConstant.FLAG_FALSE);
                         productDefine.setId(Long.parseLong(IdUtil.randomUUID()));
+                        productDefine.setTenantId(000000L);;
                         productDefineDao.insert(productDefine);
                     }else{
                         YueSoundProductDefine productDefine = yueSoundProductDefines.get(0);
@@ -434,6 +443,7 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
                     agentCategoryDefine.setId(Long.parseLong(param.getId()));
                     agentCategoryDefine.setDefine59(response.getMsg());
                     agentCategoryDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                    agentCategoryDefine.setTenantId(000000L);
                     agentCategoryDefineDao.insert(agentCategoryDefine);
                 }else{
                     YueSoundAgentCategoryDefine agentCategoryDefine = yueSoundAgentCategoryDefines.get(0);
@@ -664,8 +674,89 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
 
     }
 
+    //获取仓库详细信息
+    @Override
+    public Response getWareHouseDetail(String id) {
+        Response response = this.generateToken();
+        if(ObjectUtils.isEmpty(response.getData())){return response;}
+        String token=(String) response.getData();
+        Map<String,Object> paramMap=new HashMap<>();
+        paramMap.put("access_token", token);
+        paramMap.put("id", id);
+        JSONObject jsonObject = yueSoundUtils.getYueSoundData(wareHouseDetailUrl, paramMap, null, ConvertConstant.GET_METHOD);
+        if(jsonObject.get("code").equals(SUCCESS_CODE)){
+            Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
+            if(!ObjectUtils.isEmpty(data.get("code"))){
+                response.setData(data.get("code"));
+            }
+        }else{
+            return Response.fail().setMsg(jsonObject.get("message").toString());
+        }
+        return response;
+    }
+
+    //获取销售发货详情信息
+    @Override
+    public Response getSaleDeliveryDetail(YueSoundParam param) {
+        Response response = this.generateToken();
+        if(ObjectUtils.isEmpty(response.getData())){return response;}
+        String token=(String) response.getData();
+        Map<String,Object> paramMap=new HashMap<>();
+        paramMap.put("access_token", token);
+        paramMap.put("id", param.getId());
+        JSONObject jsonObject = yueSoundUtils.getYueSoundData(saleDeliveryDetailUrl, paramMap, null, ConvertConstant.GET_METHOD);
+        if(jsonObject.get("code").equals(SUCCESS_CODE)){
+            Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
+            response.setData(data);
+            u9Interface.ShipCreateSyncer(data);
+        }else{
+            return Response.fail().setMsg(jsonObject.get("message").toString());
+        }
+        return response;
+    }
+
+    //获取销售退货单详情
+    @Override
+    public Response getReturnOrderDetail(YueSoundParam param) {
+        Response response = this.generateToken();
+        if(ObjectUtils.isEmpty(response.getData())){return response;}
+        String token=(String) response.getData();
+        Map<String,Object> paramMap=new HashMap<>();
+        paramMap.put("access_token", token);
+        paramMap.put("id", param.getId());
+        JSONObject jsonObject = yueSoundUtils.getYueSoundData(returnOrderDetailUrl, paramMap, null, ConvertConstant.GET_METHOD);
+        if(jsonObject.get("code").equals(SUCCESS_CODE)){
+            Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
+            response.setData(data);
+        }else{
+            return Response.fail().setMsg(jsonObject.get("message").toString());
+        }
+        return response;
+    }
+
+    //获取销售订单详情解析
+    @Override
+    public Response getSaleOrderDetail(YueSoundParam param) {
+        Response response = this.generateToken();
+        if(ObjectUtils.isEmpty(response.getData())){return response;}
+        String token=(String) response.getData();
+        Map<String,Object> paramMap=new HashMap<>();
+        paramMap.put("access_token", token);
+        paramMap.put("id", param.getId());
+        JSONObject jsonObject = yueSoundUtils.getYueSoundData(saleOrderDetailUrl, paramMap, null, ConvertConstant.GET_METHOD);
+        if(jsonObject.get("code").equals(SUCCESS_CODE)){
+            Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
+            u9Interface.SOCreateSyncer(data);
+            response.setData(data);
+        }else{
+            return Response.fail().setMsg(jsonObject.get("message").toString());
+        }
+        return response;
+    }
+
     //保存客户档案
     @Override
+    @Transactional
     public Response saveMerchantDetail(YueSoundParam param) {
         if(ObjectUtils.isEmpty(param.getId())||ObjectUtils.isEmpty(param.getCode())){
             return Response.fail().setMsg("请确认客户档案ID或客户档案编码是否传入");
@@ -687,27 +778,22 @@ public class YueSoundOpenImpl implements YueSoundOpenApi {
             Map data = jsonObject.parseObject(jsonObject.get("data").toString(), Map.class);
             //调用U9接口
             response = u9Interface.CustomerCreateSyncer(data);
-            // 地址信息
-            Object merchantAddressInfos = data.get("merchantAddressInfos");
-            if(!ObjectUtils.isEmpty(merchantAddressInfos)){
-                Map map = JSONObject.parseObject(merchantAddressInfos.toString(), Map.class);
-
-            }
-            // 联系人信息
-            Object merchantContacterInfos = data.get("merchantContacterInfos");
-            if(!ObjectUtils.isEmpty(merchantContacterInfos)){
-                Map map = JSONObject.parseObject(merchantContacterInfos.toString(), Map.class);
-            }
-            // 发票信息
-            Object merchantAgentInvoiceInfos = data.get("merchantAgentInvoiceInfos");
-            if(!ObjectUtils.isEmpty(merchantAgentInvoiceInfos)){
-                List list = JSONArray.parseObject(merchantAgentInvoiceInfos.toString(), List.class);
-                Map map = JSONObject.parseObject(list.get(0).toString(), Map.class);
-            }
             // 客户
             if(!response.isSuccess()){
-                //失败加入缓存
-                //saveFailSendIdsCache(param,"merchantIds");
+                List<YueSoundMerchantDefine> yueSoundMerchantDefines = merchantDefineDao.selectById(param.getId());
+                if(CollectionUtils.isEmpty(yueSoundMerchantDefines)){
+                    YueSoundMerchantDefine yueSoundMerchantDefine=new YueSoundMerchantDefine();
+                    yueSoundMerchantDefine.setId(Long.parseLong(param.getId()));
+                    yueSoundMerchantDefine.setDefine59(response.getMsg());
+                    yueSoundMerchantDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                    yueSoundMerchantDefine.setTenantId(000000L);
+                    merchantDefineDao.insert(yueSoundMerchantDefine);
+                }else{
+                    YueSoundMerchantDefine yueSoundMerchantDefine = yueSoundMerchantDefines.get(0);
+                    yueSoundMerchantDefine.setDefine59(response.getMsg());
+                    yueSoundMerchantDefine.setDefine60(ConvertConstant.FLAG_FALSE);
+                    merchantDefineDao.updateById(yueSoundMerchantDefine);
+                }
             }
         }else{
             //失败加入缓存

@@ -35,4 +35,12 @@ public interface YueSoundOpenApi {
 
     Response saveMerchantDetail(YueSoundParam param);//*
 
+    Response getSaleOrderDetail(YueSoundParam param);
+
+    Response getReturnOrderDetail(YueSoundParam param);
+
+    Response getSaleDeliveryDetail(YueSoundParam param);
+
+    Response getWareHouseDetail(String id);
+
 }

@@ -4,15 +4,15 @@ import lombok.Data;
 
 /**
  * @author hhs
- * @create 2022-07-29 14:23
- * 员工自定义项
+ * @create 2022-08-03 15:48
+ * 销售发货单表体自定义项
  */
 @Data
-public class YueSoundStaffDefine {
+public class YueSoundDeliveryVoucherFreeItem {
     /**
-     * 员工id
+     * 销售发货单主表id
      */
-    private String id;
+    private Long id;
     /**
      * 自定义项1
      */
@@ -253,4 +253,6 @@ public class YueSoundStaffDefine {
      * 自定义项60
      */
     private String define60;
+
+    private String ytenantId;
 }

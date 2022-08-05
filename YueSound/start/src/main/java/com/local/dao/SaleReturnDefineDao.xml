@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.local.dao.SaleReturnDefineDao">
+    <sql id="allColumn">
+    id,                                               iSaleReturnId,                                    cSaleReturnNo,                                    pubuts,
+    iCorpId,                                          define1,                                          define2,                                          define3,
+    define4,                                          define5,                                          define6,                                          define7,
+    defin8,                                           define9,                                          define10,                                         define11,
+    define12,                                         define13,                                         define14,                                         define15,
+    define16,                                         define17,                                         define18,                                         define19,
+    define20,                                         define21,                                         define22,                                         define23,
+    define24,                                         define25,                                         define26,                                         define27,
+    define28,                                         define29,                                         define30,                                         version,
+    define31,                                         define32,                                         define33,                                         define34,
+    define35,                                         define36,                                         define37,                                         define38,
+    define39,                                         define40,                                         define41,                                         define42,
+    define43,                                         define44,                                         define45,                                         define46,
+    define47,                                         define48,                                         define49,                                         define50,
+    define51,                                         define52,                                         define53,                                         define54,
+    define55,                                         define56,                                         define57,                                         define58,
+    define59,                                         define60,                                         rowNo,                                            ytenant_id
+
+</sql>
+
+    <sql id="allColumnAlias">
+    id as id,                                         iSaleReturnId as iSaleReturnId,                   cSaleReturnNo as cSaleReturnNo,                   pubuts as pubuts,
+    iCorpId as iCorpId,                               define1 as define1,                               define2 as define2,                               define3 as define3,
+    define4 as define4,                               define5 as define5,                               define6 as define6,                               define7 as define7,
+    defin8 as define8,                                define9 as define9,                               define10 as define10,                             define11 as define11,
+    define12 as define12,                             define13 as define13,                             define14 as define14,                             define15 as define15,
+    define16 as define16,                             define17 as define17,                             define18 as define18,                             define19 as define19,
+    define20 as define20,                             define21 as define21,                             define22 as define22,                             define23 as define23,
+    define24 as define24,                             define25 as define25,                             define26 as define26,                             define27 as define27,
+    define28 as define28,                             define29 as define29,                             define30 as define30,                             version as version,
+    define31 as define31,                             define32 as define32,                             define33 as define33,                             define34 as define34,
+    define35 as define35,                             define36 as define36,                             define37 as define37,                             define38 as define38,
+    define39 as define39,                             define40 as define40,                             define41 as define41,                             define42 as define42,
+    define43 as define43,                             define44 as define44,                             define45 as define45,                             define46 as define46,
+    define47 as define47,                             define48 as define48,                             define49 as define49,                             define50 as define50,
+    define51 as define51,                             define52 as define52,                             define53 as define53,                             define54 as define54,
+    define55 as define55,                             define56 as define56,                             define57 as define57,                             define58 as define58,
+    define59 as define59,                             define60 as define60,                             rowNo as rowNo,                                   ytenant_id as ytenantId
+
+</sql>
+
+    <sql id="allColumnValue">
+    #{id,jdbcType=BIGINT},                  #{iSaleReturnId,jdbcType=BIGINT},       #{cSaleReturnNo,jdbcType=VARCHAR},      #{pubuts,jdbcType=DATE},
+    #{iCorpId,jdbcType=BIGINT},             #{define1,jdbcType=VARCHAR},            #{define2,jdbcType=VARCHAR},            #{define3,jdbcType=VARCHAR},
+    #{define4,jdbcType=VARCHAR},            #{define5,jdbcType=VARCHAR},            #{define6,jdbcType=VARCHAR},            #{define7,jdbcType=VARCHAR},
+    #{define8,jdbcType=VARCHAR},            #{define9,jdbcType=VARCHAR},            #{define10,jdbcType=VARCHAR},           #{define11,jdbcType=VARCHAR},
+    #{define12,jdbcType=VARCHAR},           #{define13,jdbcType=VARCHAR},           #{define14,jdbcType=VARCHAR},           #{define15,jdbcType=VARCHAR},
+    #{define16,jdbcType=VARCHAR},           #{define17,jdbcType=VARCHAR},           #{define18,jdbcType=VARCHAR},           #{define19,jdbcType=VARCHAR},
+    #{define20,jdbcType=VARCHAR},           #{define21,jdbcType=VARCHAR},           #{define22,jdbcType=VARCHAR},           #{define23,jdbcType=VARCHAR},
+    #{define24,jdbcType=VARCHAR},           #{define25,jdbcType=VARCHAR},           #{define26,jdbcType=VARCHAR},           #{define27,jdbcType=VARCHAR},
+    #{define28,jdbcType=VARCHAR},           #{define29,jdbcType=VARCHAR},           #{define30,jdbcType=VARCHAR},           #{version,jdbcType=INTEGER},
+    #{define31,jdbcType=VARCHAR},           #{define32,jdbcType=VARCHAR},           #{define33,jdbcType=VARCHAR},           #{define34,jdbcType=VARCHAR},
+    #{define35,jdbcType=VARCHAR},           #{define36,jdbcType=VARCHAR},           #{define37,jdbcType=VARCHAR},           #{define38,jdbcType=VARCHAR},
+    #{define39,jdbcType=VARCHAR},           #{define40,jdbcType=VARCHAR},           #{define41,jdbcType=VARCHAR},           #{define42,jdbcType=VARCHAR},
+    #{define43,jdbcType=VARCHAR},           #{define44,jdbcType=VARCHAR},           #{define45,jdbcType=VARCHAR},           #{define46,jdbcType=VARCHAR},
+    #{define47,jdbcType=VARCHAR},           #{define48,jdbcType=VARCHAR},           #{define49,jdbcType=VARCHAR},           #{define50,jdbcType=VARCHAR},
+    #{define51,jdbcType=VARCHAR},           #{define52,jdbcType=VARCHAR},           #{define53,jdbcType=VARCHAR},           #{define54,jdbcType=VARCHAR},
+    #{define55,jdbcType=VARCHAR},           #{define56,jdbcType=VARCHAR},           #{define57,jdbcType=VARCHAR},           #{define58,jdbcType=VARCHAR},
+    #{define59,jdbcType=VARCHAR},           #{define60,jdbcType=VARCHAR},           #{rowNo,jdbcType=VARCHAR},              #{ytenantId,jdbcType=VARCHAR}
+
+</sql>
+
+    <sql id="allColumnSet">
+        <if test="id != null">
+            id=#{id,jdbcType=BIGINT},
+        </if>
+        <if test="iSaleReturnId != null">
+            iSaleReturnId=#{iSaleReturnId,jdbcType=BIGINT},
+        </if>
+        <if test="cSaleReturnNo != null and cSaleReturnNo != ''">
+            cSaleReturnNo=#{cSaleReturnNo,jdbcType=VARCHAR},
+        </if>
+        <if test="pubuts != null">
+            pubuts=#{pubuts,jdbcType=DATE},
+        </if>
+        <if test="iCorpId != null">
+            iCorpId=#{iCorpId,jdbcType=BIGINT},
+        </if>
+        <if test="define1 != null and define1 != ''">
+            define1=#{define1,jdbcType=VARCHAR},
+        </if>
+        <if test="define2 != null and define2 != ''">
+            define2=#{define2,jdbcType=VARCHAR},
+        </if>
+        <if test="define3 != null and define3 != ''">
+            define3=#{define3,jdbcType=VARCHAR},
+        </if>
+        <if test="define4 != null and define4 != ''">
+            define4=#{define4,jdbcType=VARCHAR},
+        </if>
+        <if test="define5 != null and define5 != ''">
+            define5=#{define5,jdbcType=VARCHAR},
+        </if>
+        <if test="define6 != null and define6 != ''">
+            define6=#{define6,jdbcType=VARCHAR},
+        </if>
+        <if test="define7 != null and define7 != ''">
+            define7=#{define7,jdbcType=VARCHAR},
+        </if>
+        <if test="define8 != null and define8 != ''">
+            defin8=#{define8,jdbcType=VARCHAR},
+        </if>
+        <if test="define9 != null and define9 != ''">
+            define9=#{define9,jdbcType=VARCHAR},
+        </if>
+        <if test="define10 != null and define10 != ''">
+            define10=#{define10,jdbcType=VARCHAR},
+        </if>
+        <if test="define11 != null and define11 != ''">
+            define11=#{define11,jdbcType=VARCHAR},
+        </if>
+        <if test="define12 != null and define12 != ''">
+            define12=#{define12,jdbcType=VARCHAR},
+        </if>
+        <if test="define13 != null and define13 != ''">
+            define13=#{define13,jdbcType=VARCHAR},
+        </if>
+        <if test="define14 != null and define14 != ''">
+            define14=#{define14,jdbcType=VARCHAR},
+        </if>
+        <if test="define15 != null and define15 != ''">
+            define15=#{define15,jdbcType=VARCHAR},
+        </if>
+        <if test="define16 != null and define16 != ''">
+            define16=#{define16,jdbcType=VARCHAR},
+        </if>
+        <if test="define17 != null and define17 != ''">
+            define17=#{define17,jdbcType=VARCHAR},
+        </if>
+        <if test="define18 != null and define18 != ''">
+            define18=#{define18,jdbcType=VARCHAR},
+        </if>
+        <if test="define19 != null and define19 != ''">
+            define19=#{define19,jdbcType=VARCHAR},
+        </if>
+        <if test="define20 != null and define20 != ''">
+            define20=#{define20,jdbcType=VARCHAR},
+        </if>
+        <if test="define21 != null and define21 != ''">
+            define21=#{define21,jdbcType=VARCHAR},
+        </if>
+        <if test="define22 != null and define22 != ''">
+            define22=#{define22,jdbcType=VARCHAR},
+        </if>
+        <if test="define23 != null and define23 != ''">
+            define23=#{define23,jdbcType=VARCHAR},
+        </if>
+        <if test="define24 != null and define24 != ''">
+            define24=#{define24,jdbcType=VARCHAR},
+        </if>
+        <if test="define25 != null and define25 != ''">
+            define25=#{define25,jdbcType=VARCHAR},
+        </if>
+        <if test="define26 != null and define26 != ''">
+            define26=#{define26,jdbcType=VARCHAR},
+        </if>
+        <if test="define27 != null and define27 != ''">
+            define27=#{define27,jdbcType=VARCHAR},
+        </if>
+        <if test="define28 != null and define28 != ''">
+            define28=#{define28,jdbcType=VARCHAR},
+        </if>
+        <if test="define29 != null and define29 != ''">
+            define29=#{define29,jdbcType=VARCHAR},
+        </if>
+        <if test="define30 != null and define30 != ''">
+            define30=#{define30,jdbcType=VARCHAR},
+        </if>
+        <if test="version != null">
+            version=#{version,jdbcType=INTEGER},
+        </if>
+        <if test="define31 != null and define31 != ''">
+            define31=#{define31,jdbcType=VARCHAR},
+        </if>
+        <if test="define32 != null and define32 != ''">
+            define32=#{define32,jdbcType=VARCHAR},
+        </if>
+        <if test="define33 != null and define33 != ''">
+            define33=#{define33,jdbcType=VARCHAR},
+        </if>
+        <if test="define34 != null and define34 != ''">
+            define34=#{define34,jdbcType=VARCHAR},
+        </if>
+        <if test="define35 != null and define35 != ''">
+            define35=#{define35,jdbcType=VARCHAR},
+        </if>
+        <if test="define36 != null and define36 != ''">
+            define36=#{define36,jdbcType=VARCHAR},
+        </if>
+        <if test="define37 != null and define37 != ''">
+            define37=#{define37,jdbcType=VARCHAR},
+        </if>
+        <if test="define38 != null and define38 != ''">
+            define38=#{define38,jdbcType=VARCHAR},
+        </if>
+        <if test="define39 != null and define39 != ''">
+            define39=#{define39,jdbcType=VARCHAR},
+        </if>
+        <if test="define40 != null and define40 != ''">
+            define40=#{define40,jdbcType=VARCHAR},
+        </if>
+        <if test="define41 != null and define41 != ''">
+            define41=#{define41,jdbcType=VARCHAR},
+        </if>
+        <if test="define42 != null and define42 != ''">
+            define42=#{define42,jdbcType=VARCHAR},
+        </if>
+        <if test="define43 != null and define43 != ''">
+            define43=#{define43,jdbcType=VARCHAR},
+        </if>
+        <if test="define44 != null and define44 != ''">
+            define44=#{define44,jdbcType=VARCHAR},
+        </if>
+        <if test="define45 != null and define45 != ''">
+            define45=#{define45,jdbcType=VARCHAR},
+        </if>
+        <if test="define46 != null and define46 != ''">
+            define46=#{define46,jdbcType=VARCHAR},
+        </if>
+        <if test="define47 != null and define47 != ''">
+            define47=#{define47,jdbcType=VARCHAR},
+        </if>
+        <if test="define48 != null and define48 != ''">
+            define48=#{define48,jdbcType=VARCHAR},
+        </if>
+        <if test="define49 != null and define49 != ''">
+            define49=#{define49,jdbcType=VARCHAR},
+        </if>
+        <if test="define50 != null and define50 != ''">
+            define50=#{define50,jdbcType=VARCHAR},
+        </if>
+        <if test="define51 != null and define51 != ''">
+            define51=#{define51,jdbcType=VARCHAR},
+        </if>
+        <if test="define52 != null and define52 != ''">
+            define52=#{define52,jdbcType=VARCHAR},
+        </if>
+        <if test="define53 != null and define53 != ''">
+            define53=#{define53,jdbcType=VARCHAR},
+        </if>
+        <if test="define54 != null and define54 != ''">
+            define54=#{define54,jdbcType=VARCHAR},
+        </if>
+        <if test="define55 != null and define55 != ''">
+            define55=#{define55,jdbcType=VARCHAR},
+        </if>
+        <if test="define56 != null and define56 != ''">
+            define56=#{define56,jdbcType=VARCHAR},
+        </if>
+        <if test="define57 != null and define57 != ''">
+            define57=#{define57,jdbcType=VARCHAR},
+        </if>
+        <if test="define58 != null and define58 != ''">
+            define58=#{define58,jdbcType=VARCHAR},
+        </if>
+        <if test="define59 != null and define59 != ''">
+            define59=#{define59,jdbcType=VARCHAR},
+        </if>
+        <if test="define60 != null and define60 != ''">
+            define60=#{define60,jdbcType=VARCHAR},
+        </if>
+        <if test="rowNo != null and rowNo != ''">
+            rowNo=#{rowNo,jdbcType=VARCHAR},
+        </if>
+        <if test="ytenantId != null and ytenantId != ''">
+            ytenant_id=#{ytenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <sql id="columnSelective">
+        <if test="id != null">
+            id,
+        </if>
+        <if test="iSaleReturnId != null">
+            iSaleReturnId,
+        </if>
+        <if test="cSaleReturnNo != null and cSaleReturnNo != ''">
+            cSaleReturnNo,
+        </if>
+        <if test="pubuts != null">
+            pubuts,
+        </if>
+        <if test="iCorpId != null">
+            iCorpId,
+        </if>
+        <if test="define1 != null and define1 != ''">
+            define1,
+        </if>
+        <if test="define2 != null and define2 != ''">
+            define2,
+        </if>
+        <if test="define3 != null and define3 != ''">
+            define3,
+        </if>
+        <if test="define4 != null and define4 != ''">
+            define4,
+        </if>
+        <if test="define5 != null and define5 != ''">
+            define5,
+        </if>
+        <if test="define6 != null and define6 != ''">
+            define6,
+        </if>
+        <if test="define7 != null and define7 != ''">
+            define7,
+        </if>
+        <if test="define8 != null and define8 != ''">
+            defin8,
+        </if>
+        <if test="define9 != null and define9 != ''">
+            define9,
+        </if>
+        <if test="define10 != null and define10 != ''">
+            define10,
+        </if>
+        <if test="define11 != null and define11 != ''">
+            define11,
+        </if>
+        <if test="define12 != null and define12 != ''">
+            define12,
+        </if>
+        <if test="define13 != null and define13 != ''">
+            define13,
+        </if>
+        <if test="define14 != null and define14 != ''">
+            define14,
+        </if>
+        <if test="define15 != null and define15 != ''">
+            define15,
+        </if>
+        <if test="define16 != null and define16 != ''">
+            define16,
+        </if>
+        <if test="define17 != null and define17 != ''">
+            define17,
+        </if>
+        <if test="define18 != null and define18 != ''">
+            define18,
+        </if>
+        <if test="define19 != null and define19 != ''">
+            define19,
+        </if>
+        <if test="define20 != null and define20 != ''">
+            define20,
+        </if>
+        <if test="define21 != null and define21 != ''">
+            define21,
+        </if>
+        <if test="define22 != null and define22 != ''">
+            define22,
+        </if>
+        <if test="define23 != null and define23 != ''">
+            define23,
+        </if>
+        <if test="define24 != null and define24 != ''">
+            define24,
+        </if>
+        <if test="define25 != null and define25 != ''">
+            define25,
+        </if>
+        <if test="define26 != null and define26 != ''">
+            define26,
+        </if>
+        <if test="define27 != null and define27 != ''">
+            define27,
+        </if>
+        <if test="define28 != null and define28 != ''">
+            define28,
+        </if>
+        <if test="define29 != null and define29 != ''">
+            define29,
+        </if>
+        <if test="define30 != null and define30 != ''">
+            define30,
+        </if>
+        <if test="version != null">
+            version,
+        </if>
+        <if test="define31 != null and define31 != ''">
+            define31,
+        </if>
+        <if test="define32 != null and define32 != ''">
+            define32,
+        </if>
+        <if test="define33 != null and define33 != ''">
+            define33,
+        </if>
+        <if test="define34 != null and define34 != ''">
+            define34,
+        </if>
+        <if test="define35 != null and define35 != ''">
+            define35,
+        </if>
+        <if test="define36 != null and define36 != ''">
+            define36,
+        </if>
+        <if test="define37 != null and define37 != ''">
+            define37,
+        </if>
+        <if test="define38 != null and define38 != ''">
+            define38,
+        </if>
+        <if test="define39 != null and define39 != ''">
+            define39,
+        </if>
+        <if test="define40 != null and define40 != ''">
+            define40,
+        </if>
+        <if test="define41 != null and define41 != ''">
+            define41,
+        </if>
+        <if test="define42 != null and define42 != ''">
+            define42,
+        </if>
+        <if test="define43 != null and define43 != ''">
+            define43,
+        </if>
+        <if test="define44 != null and define44 != ''">
+            define44,
+        </if>
+        <if test="define45 != null and define45 != ''">
+            define45,
+        </if>
+        <if test="define46 != null and define46 != ''">
+            define46,
+        </if>
+        <if test="define47 != null and define47 != ''">
+            define47,
+        </if>
+        <if test="define48 != null and define48 != ''">
+            define48,
+        </if>
+        <if test="define49 != null and define49 != ''">
+            define49,
+        </if>
+        <if test="define50 != null and define50 != ''">
+            define50,
+        </if>
+        <if test="define51 != null and define51 != ''">
+            define51,
+        </if>
+        <if test="define52 != null and define52 != ''">
+            define52,
+        </if>
+        <if test="define53 != null and define53 != ''">
+            define53,
+        </if>
+        <if test="define54 != null and define54 != ''">
+            define54,
+        </if>
+        <if test="define55 != null and define55 != ''">
+            define55,
+        </if>
+        <if test="define56 != null and define56 != ''">
+            define56,
+        </if>
+        <if test="define57 != null and define57 != ''">
+            define57,
+        </if>
+        <if test="define58 != null and define58 != ''">
+            define58,
+        </if>
+        <if test="define59 != null and define59 != ''">
+            define59,
+        </if>
+        <if test="define60 != null and define60 != ''">
+            define60,
+        </if>
+        <if test="rowNo != null and rowNo != ''">
+            rowNo,
+        </if>
+        <if test="ytenantId != null and ytenantId != ''">
+            ytenant_id
+        </if>
+    </sql>
+
+    <sql id="columnValueSelective">
+        <if test="id != null">
+            #{id,jdbcType=BIGINT},
+        </if>
+        <if test="iSaleReturnId != null">
+            #{iSaleReturnId,jdbcType=BIGINT},
+        </if>
+        <if test="cSaleReturnNo != null and cSaleReturnNo != ''">
+            #{cSaleReturnNo,jdbcType=VARCHAR},
+        </if>
+        <if test="pubuts != null">
+            #{pubuts,jdbcType=DATE},
+        </if>
+        <if test="iCorpId != null">
+            #{iCorpId,jdbcType=BIGINT},
+        </if>
+        <if test="define1 != null and define1 != ''">
+            #{define1,jdbcType=VARCHAR},
+        </if>
+        <if test="define2 != null and define2 != ''">
+            #{define2,jdbcType=VARCHAR},
+        </if>
+        <if test="define3 != null and define3 != ''">
+            #{define3,jdbcType=VARCHAR},
+        </if>
+        <if test="define4 != null and define4 != ''">
+            #{define4,jdbcType=VARCHAR},
+        </if>
+        <if test="define5 != null and define5 != ''">
+            #{define5,jdbcType=VARCHAR},
+        </if>
+        <if test="define6 != null and define6 != ''">
+            #{define6,jdbcType=VARCHAR},
+        </if>
+        <if test="define7 != null and define7 != ''">
+            #{define7,jdbcType=VARCHAR},
+        </if>
+        <if test="define8 != null and define8 != ''">
+            #{define8,jdbcType=VARCHAR},
+        </if>
+        <if test="define9 != null and define9 != ''">
+            #{define9,jdbcType=VARCHAR},
+        </if>
+        <if test="define10 != null and define10 != ''">
+            #{define10,jdbcType=VARCHAR},
+        </if>
+        <if test="define11 != null and define11 != ''">
+            #{define11,jdbcType=VARCHAR},
+        </if>
+        <if test="define12 != null and define12 != ''">
+            #{define12,jdbcType=VARCHAR},
+        </if>
+        <if test="define13 != null and define13 != ''">
+            #{define13,jdbcType=VARCHAR},
+        </if>
+        <if test="define14 != null and define14 != ''">
+            #{define14,jdbcType=VARCHAR},
+        </if>
+        <if test="define15 != null and define15 != ''">
+            #{define15,jdbcType=VARCHAR},
+        </if>
+        <if test="define16 != null and define16 != ''">
+            #{define16,jdbcType=VARCHAR},
+        </if>
+        <if test="define17 != null and define17 != ''">
+            #{define17,jdbcType=VARCHAR},
+        </if>
+        <if test="define18 != null and define18 != ''">
+            #{define18,jdbcType=VARCHAR},
+        </if>
+        <if test="define19 != null and define19 != ''">
+            #{define19,jdbcType=VARCHAR},
+        </if>
+        <if test="define20 != null and define20 != ''">
+            #{define20,jdbcType=VARCHAR},
+        </if>
+        <if test="define21 != null and define21 != ''">
+            #{define21,jdbcType=VARCHAR},
+        </if>
+        <if test="define22 != null and define22 != ''">
+            #{define22,jdbcType=VARCHAR},
+        </if>
+        <if test="define23 != null and define23 != ''">
+            #{define23,jdbcType=VARCHAR},
+        </if>
+        <if test="define24 != null and define24 != ''">
+            #{define24,jdbcType=VARCHAR},
+        </if>
+        <if test="define25 != null and define25 != ''">
+            #{define25,jdbcType=VARCHAR},
+        </if>
+        <if test="define26 != null and define26 != ''">
+            #{define26,jdbcType=VARCHAR},
+        </if>
+        <if test="define27 != null and define27 != ''">
+            #{define27,jdbcType=VARCHAR},
+        </if>
+        <if test="define28 != null and define28 != ''">
+            #{define28,jdbcType=VARCHAR},
+        </if>
+        <if test="define29 != null and define29 != ''">
+            #{define29,jdbcType=VARCHAR},
+        </if>
+        <if test="define30 != null and define30 != ''">
+            #{define30,jdbcType=VARCHAR},
+        </if>
+        <if test="version != null">
+            #{version,jdbcType=INTEGER},
+        </if>
+        <if test="define31 != null and define31 != ''">
+            #{define31,jdbcType=VARCHAR},
+        </if>
+        <if test="define32 != null and define32 != ''">
+            #{define32,jdbcType=VARCHAR},
+        </if>
+        <if test="define33 != null and define33 != ''">
+            #{define33,jdbcType=VARCHAR},
+        </if>
+        <if test="define34 != null and define34 != ''">
+            #{define34,jdbcType=VARCHAR},
+        </if>
+        <if test="define35 != null and define35 != ''">
+            #{define35,jdbcType=VARCHAR},
+        </if>
+        <if test="define36 != null and define36 != ''">
+            #{define36,jdbcType=VARCHAR},
+        </if>
+        <if test="define37 != null and define37 != ''">
+            #{define37,jdbcType=VARCHAR},
+        </if>
+        <if test="define38 != null and define38 != ''">
+            #{define38,jdbcType=VARCHAR},
+        </if>
+        <if test="define39 != null and define39 != ''">
+            #{define39,jdbcType=VARCHAR},
+        </if>
+        <if test="define40 != null and define40 != ''">
+            #{define40,jdbcType=VARCHAR},
+        </if>
+        <if test="define41 != null and define41 != ''">
+            #{define41,jdbcType=VARCHAR},
+        </if>
+        <if test="define42 != null and define42 != ''">
+            #{define42,jdbcType=VARCHAR},
+        </if>
+        <if test="define43 != null and define43 != ''">
+            #{define43,jdbcType=VARCHAR},
+        </if>
+        <if test="define44 != null and define44 != ''">
+            #{define44,jdbcType=VARCHAR},
+        </if>
+        <if test="define45 != null and define45 != ''">
+            #{define45,jdbcType=VARCHAR},
+        </if>
+        <if test="define46 != null and define46 != ''">
+            #{define46,jdbcType=VARCHAR},
+        </if>
+        <if test="define47 != null and define47 != ''">
+            #{define47,jdbcType=VARCHAR},
+        </if>
+        <if test="define48 != null and define48 != ''">
+            #{define48,jdbcType=VARCHAR},
+        </if>
+        <if test="define49 != null and define49 != ''">
+            #{define49,jdbcType=VARCHAR},
+        </if>
+        <if test="define50 != null and define50 != ''">
+            #{define50,jdbcType=VARCHAR},
+        </if>
+        <if test="define51 != null and define51 != ''">
+            #{define51,jdbcType=VARCHAR},
+        </if>
+        <if test="define52 != null and define52 != ''">
+            #{define52,jdbcType=VARCHAR},
+        </if>
+        <if test="define53 != null and define53 != ''">
+            #{define53,jdbcType=VARCHAR},
+        </if>
+        <if test="define54 != null and define54 != ''">
+            #{define54,jdbcType=VARCHAR},
+        </if>
+        <if test="define55 != null and define55 != ''">
+            #{define55,jdbcType=VARCHAR},
+        </if>
+        <if test="define56 != null and define56 != ''">
+            #{define56,jdbcType=VARCHAR},
+        </if>
+        <if test="define57 != null and define57 != ''">
+            #{define57,jdbcType=VARCHAR},
+        </if>
+        <if test="define58 != null and define58 != ''">
+            #{define58,jdbcType=VARCHAR},
+        </if>
+        <if test="define59 != null and define59 != ''">
+            #{define59,jdbcType=VARCHAR},
+        </if>
+        <if test="define60 != null and define60 != ''">
+            #{define60,jdbcType=VARCHAR},
+        </if>
+        <if test="rowNo != null and rowNo != ''">
+            #{rowNo,jdbcType=VARCHAR},
+        </if>
+        <if test="ytenantId != null and ytenantId != ''">
+            #{ytenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <sql id="allColumnCond">
+        <if test="id != null">
+            AND id=#{id,jdbcType=BIGINT}
+        </if>
+        <if test="iSaleReturnId != null">
+            AND iSaleReturnId=#{iSaleReturnId,jdbcType=BIGINT}
+        </if>
+        <if test="cSaleReturnNo != null and cSaleReturnNo != ''">
+            AND cSaleReturnNo=#{cSaleReturnNo,jdbcType=VARCHAR}
+        </if>
+        <if test="pubuts != null">
+            AND pubuts=#{pubuts,jdbcType=DATE}
+        </if>
+        <if test="iCorpId != null">
+            AND iCorpId=#{iCorpId,jdbcType=BIGINT}
+        </if>
+        <if test="define1 != null and define1 != ''">
+            AND define1=#{define1,jdbcType=VARCHAR}
+        </if>
+        <if test="define2 != null and define2 != ''">
+            AND define2=#{define2,jdbcType=VARCHAR}
+        </if>
+        <if test="define3 != null and define3 != ''">
+            AND define3=#{define3,jdbcType=VARCHAR}
+        </if>
+        <if test="define4 != null and define4 != ''">
+            AND define4=#{define4,jdbcType=VARCHAR}
+        </if>
+        <if test="define5 != null and define5 != ''">
+            AND define5=#{define5,jdbcType=VARCHAR}
+        </if>
+        <if test="define6 != null and define6 != ''">
+            AND define6=#{define6,jdbcType=VARCHAR}
+        </if>
+        <if test="define7 != null and define7 != ''">
+            AND define7=#{define7,jdbcType=VARCHAR}
+        </if>
+        <if test="define8 != null and define8 != ''">
+            AND defin8=#{define8,jdbcType=VARCHAR}
+        </if>
+        <if test="define9 != null and define9 != ''">
+            AND define9=#{define9,jdbcType=VARCHAR}
+        </if>
+        <if test="define10 != null and define10 != ''">
+            AND define10=#{define10,jdbcType=VARCHAR}
+        </if>
+        <if test="define11 != null and define11 != ''">
+            AND define11=#{define11,jdbcType=VARCHAR}
+        </if>
+        <if test="define12 != null and define12 != ''">
+            AND define12=#{define12,jdbcType=VARCHAR}
+        </if>
+        <if test="define13 != null and define13 != ''">
+            AND define13=#{define13,jdbcType=VARCHAR}
+        </if>
+        <if test="define14 != null and define14 != ''">
+            AND define14=#{define14,jdbcType=VARCHAR}
+        </if>
+        <if test="define15 != null and define15 != ''">
+            AND define15=#{define15,jdbcType=VARCHAR}
+        </if>
+        <if test="define16 != null and define16 != ''">
+            AND define16=#{define16,jdbcType=VARCHAR}
+        </if>
+        <if test="define17 != null and define17 != ''">
+            AND define17=#{define17,jdbcType=VARCHAR}
+        </if>
+        <if test="define18 != null and define18 != ''">
+            AND define18=#{define18,jdbcType=VARCHAR}
+        </if>
+        <if test="define19 != null and define19 != ''">
+            AND define19=#{define19,jdbcType=VARCHAR}
+        </if>
+        <if test="define20 != null and define20 != ''">
+            AND define20=#{define20,jdbcType=VARCHAR}
+        </if>
+        <if test="define21 != null and define21 != ''">
+            AND define21=#{define21,jdbcType=VARCHAR}
+        </if>
+        <if test="define22 != null and define22 != ''">
+            AND define22=#{define22,jdbcType=VARCHAR}
+        </if>
+        <if test="define23 != null and define23 != ''">
+            AND define23=#{define23,jdbcType=VARCHAR}
+        </if>
+        <if test="define24 != null and define24 != ''">
+            AND define24=#{define24,jdbcType=VARCHAR}
+        </if>
+        <if test="define25 != null and define25 != ''">
+            AND define25=#{define25,jdbcType=VARCHAR}
+        </if>
+        <if test="define26 != null and define26 != ''">
+            AND define26=#{define26,jdbcType=VARCHAR}
+        </if>
+        <if test="define27 != null and define27 != ''">
+            AND define27=#{define27,jdbcType=VARCHAR}
+        </if>
+        <if test="define28 != null and define28 != ''">
+            AND define28=#{define28,jdbcType=VARCHAR}
+        </if>
+        <if test="define29 != null and define29 != ''">
+            AND define29=#{define29,jdbcType=VARCHAR}
+        </if>
+        <if test="define30 != null and define30 != ''">
+            AND define30=#{define30,jdbcType=VARCHAR}
+        </if>
+        <if test="version != null">
+            AND version=#{version,jdbcType=INTEGER}
+        </if>
+        <if test="define31 != null and define31 != ''">
+            AND define31=#{define31,jdbcType=VARCHAR}
+        </if>
+        <if test="define32 != null and define32 != ''">
+            AND define32=#{define32,jdbcType=VARCHAR}
+        </if>
+        <if test="define33 != null and define33 != ''">
+            AND define33=#{define33,jdbcType=VARCHAR}
+        </if>
+        <if test="define34 != null and define34 != ''">
+            AND define34=#{define34,jdbcType=VARCHAR}
+        </if>
+        <if test="define35 != null and define35 != ''">
+            AND define35=#{define35,jdbcType=VARCHAR}
+        </if>
+        <if test="define36 != null and define36 != ''">
+            AND define36=#{define36,jdbcType=VARCHAR}
+        </if>
+        <if test="define37 != null and define37 != ''">
+            AND define37=#{define37,jdbcType=VARCHAR}
+        </if>
+        <if test="define38 != null and define38 != ''">
+            AND define38=#{define38,jdbcType=VARCHAR}
+        </if>
+        <if test="define39 != null and define39 != ''">
+            AND define39=#{define39,jdbcType=VARCHAR}
+        </if>
+        <if test="define40 != null and define40 != ''">
+            AND define40=#{define40,jdbcType=VARCHAR}
+        </if>
+        <if test="define41 != null and define41 != ''">
+            AND define41=#{define41,jdbcType=VARCHAR}
+        </if>
+        <if test="define42 != null and define42 != ''">
+            AND define42=#{define42,jdbcType=VARCHAR}
+        </if>
+        <if test="define43 != null and define43 != ''">
+            AND define43=#{define43,jdbcType=VARCHAR}
+        </if>
+        <if test="define44 != null and define44 != ''">
+            AND define44=#{define44,jdbcType=VARCHAR}
+        </if>
+        <if test="define45 != null and define45 != ''">
+            AND define45=#{define45,jdbcType=VARCHAR}
+        </if>
+        <if test="define46 != null and define46 != ''">
+            AND define46=#{define46,jdbcType=VARCHAR}
+        </if>
+        <if test="define47 != null and define47 != ''">
+            AND define47=#{define47,jdbcType=VARCHAR}
+        </if>
+        <if test="define48 != null and define48 != ''">
+            AND define48=#{define48,jdbcType=VARCHAR}
+        </if>
+        <if test="define49 != null and define49 != ''">
+            AND define49=#{define49,jdbcType=VARCHAR}
+        </if>
+        <if test="define50 != null and define50 != ''">
+            AND define50=#{define50,jdbcType=VARCHAR}
+        </if>
+        <if test="define51 != null and define51 != ''">
+            AND define51=#{define51,jdbcType=VARCHAR}
+        </if>
+        <if test="define52 != null and define52 != ''">
+            AND define52=#{define52,jdbcType=VARCHAR}
+        </if>
+        <if test="define53 != null and define53 != ''">
+            AND define53=#{define53,jdbcType=VARCHAR}
+        </if>
+        <if test="define54 != null and define54 != ''">
+            AND define54=#{define54,jdbcType=VARCHAR}
+        </if>
+        <if test="define55 != null and define55 != ''">
+            AND define55=#{define55,jdbcType=VARCHAR}
+        </if>
+        <if test="define56 != null and define56 != ''">
+            AND define56=#{define56,jdbcType=VARCHAR}
+        </if>
+        <if test="define57 != null and define57 != ''">
+            AND define57=#{define57,jdbcType=VARCHAR}
+        </if>
+        <if test="define58 != null and define58 != ''">
+            AND define58=#{define58,jdbcType=VARCHAR}
+        </if>
+        <if test="define59 != null and define59 != ''">
+            AND define59=#{define59,jdbcType=VARCHAR}
+        </if>
+        <if test="define60 != null and define60 != ''">
+            AND define60=#{define60,jdbcType=VARCHAR}
+        </if>
+        <if test="rowNo != null and rowNo != ''">
+            AND rowNo=#{rowNo,jdbcType=VARCHAR}
+        </if>
+        <if test="ytenantId != null and ytenantId != ''">
+            AND ytenant_id=#{ytenantId,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <insert id="insert" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        INSERT INTO uorders.uo_define_salereturndefine (
+        <include refid="allColumn" />
+        ) VALUES (
+        <include refid="allColumnValue" />
+        )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        INSERT INTO uorders.uo_define_salereturndefine (
+        <include refid="columnSelective" />
+        ) VALUES (
+        <include refid="columnValueSelective" />
+        )
+    </insert>
+
+    <delete id="delById" parameterType="string">
+    DELETE FROM uorders.uo_define_salereturndefine
+    WHERE
+        id=#{value}
+</delete>
+
+    <delete id="delByIds" parameterType="java.util.List">
+        DELETE FROM uorders.uo_define_salereturndefine
+        WHERE id IN
+        <foreach collection="list" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="del" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        DELETE FROM uorders.uo_define_salereturndefine
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </delete>
+
+    <update id="updateById" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        UPDATE uorders.uo_define_salereturndefine
+        <set>
+            <include refid="allColumnSet" />
+        </set>
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectById" parameterType="string" resultType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM uorders.uo_define_salereturndefine
+        WHERE id=#{value}
+    </select>
+
+    <select id="selectByIds" parameterType="java.util.List" resultType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM uorders.uo_define_salereturndefine
+        WHERE id IN
+        <foreach collection="list" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="select" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine" resultType="com.local.entity.YueSound.YueSoundSaleReturnDefine">
+        SELECT
+        <include refid="allColumnAlias" />
+        FROM uorders.uo_define_salereturndefine
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </select>
+
+    <select id="count" parameterType="com.local.entity.YueSound.YueSoundSaleReturnDefine" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM uorders.uo_define_salereturndefine
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </select>
+</mapper>
+

@@ -44,6 +44,10 @@ yueSound:
    staffUserUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/staff/detail
    merchantDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/merchant/detail
    adminDeptDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/admindept/detail
+   saleOrderDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/voucherorder/detail
+   returnOrderDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/vouchersalereturn/detail
+   saleDeliveryDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/sd/voucherdelivery/detail
+   wareHouseDetailUrl: https://ywzt.chinahys.com/iuap-api-gateway/yonbip/digitalModel/warehouse/detail
 U9:
   soapAction: http://www.UFIDA.org/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService/Do
   U9InterfaceUrl: http://192.168.2.233:80/U9/Services/UFIDA.U9.SzCusDev.JAR.InterfaceSV.ISyncService.svc
